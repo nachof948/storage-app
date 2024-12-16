@@ -4,6 +4,10 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+/* 
+La función parseStringify toma un valor de cualquier tipo (unknown), lo convierte a una cadena JSON utilizando JSON.stringify, y luego lo parsea de nuevo a un objeto o estructura similar usando JSON.parse.
+Convierte el valor (que puede ser un objeto, array, etc.) en una cadena JSON. Esto elimina cualquier información no serializable, como métodos o referencias cíclicas. */
 export const parseStringify = (value: unknown) =>
   JSON.parse(JSON.stringify(value));
 
@@ -25,7 +29,7 @@ export const convertFileSize = (sizeInBytes: number, digits?: number) => {
 };
 
 export const calculatePercentage = (sizeInBytes: number) => {
-  const totalSizeInBytes = 2 * 1024 * 1024 * 1024; // 2GB in bytes
+  const totalSizeInBytes = 2 * 1024 * 1024 * 1024; // 2GB in bytes  
   const percentage = (sizeInBytes / totalSizeInBytes) * 100;
   return Number(percentage.toFixed(2));
 };

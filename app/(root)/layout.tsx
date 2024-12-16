@@ -3,6 +3,7 @@ import MobileNavigation from "@/components/MobileNavigation";
 import SideBar from "@/components/SideBar";
 import { getCurrentUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
+import { Toaster } from "@/components/ui/toaster"
 import React from "react";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
@@ -17,6 +18,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <Header />
         <div className="main-content">{children}</div>
       </section>
+      <Toaster />
     </main>
   );
 };
